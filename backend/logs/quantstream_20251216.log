@@ -2343,3 +2343,38 @@ Symbol: BTCUSDT
 Message: Price changed by 100.00%
 ==================================================
 2025-12-16 22:43:32 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 22:46:57 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 15.75 (avg: 0.16)
+==================================================
+2025-12-16 22:46:57 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 15.75 (avg: 0.16)
+2025-12-16 22:46:57 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 4.61 (avg: 0.05)
+==================================================
+2025-12-16 22:46:57 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 4.61 (avg: 0.05)
+2025-12-16 22:47:04 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 22:47:04 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 22:47:04 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 22:47:04 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 22:48:21 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 22:48:21 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%

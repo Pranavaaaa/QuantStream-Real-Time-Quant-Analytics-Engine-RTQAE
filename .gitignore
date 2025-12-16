@@ -12,11 +12,15 @@ venv/
 # Database
 *.db
 backend/data/*.db
+backend/data/market_data.db
+backend/data/quantstream.db
+backend/data/quantstream.db-journal
 
 # Logs
 *.log
 backend/logs/*.log
-logs/
+backend/logs/quantstream_20251216.log
+backend/logs/quantstream_20251216.log-journal
 
 # React / Node
 node_modules/
