@@ -1,0 +1,2119 @@
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.storage.resampler | __init__:69 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:20 | Price stats calculator initialized (window: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 14:23:02 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 14:27:01 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 14:27:01 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 14:27:01 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 14:27:02 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 14:27:03 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.28 (avg: 0.07)
+2025-12-16 14:27:03 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 7.03 (avg: 1.76)
+2025-12-16 14:27:04 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.52 exceeds threshold 3.0
+2025-12-16 14:27:07 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 4.01 exceeds threshold 3.0
+2025-12-16 14:27:13 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:27:16 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:28:46 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 14:28:46 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.storage.resampler | __init__:69 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:20 | Price stats calculator initialized (window: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 14:33:46 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 14:34:42 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 14:34:42 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 14:34:42 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 14:34:43 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 14:34:44 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 16.96 (avg: 0.17)
+2025-12-16 14:34:45 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 1.25 (avg: 0.01)
+2025-12-16 14:34:45 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 9.95 exceeds threshold 3.0
+2025-12-16 14:34:45 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 4.54 exceeds threshold 3.0
+2025-12-16 14:34:47 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:34:49 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.storage.resampler | __init__:69 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:20 | Price stats calculator initialized (window: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 14:36:47 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 14:37:17 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 14:37:17 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 14:37:17 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 14:37:19 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 14:37:20 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.34 (avg: 0.09)
+2025-12-16 14:37:20 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.14 (avg: 0.03)
+2025-12-16 14:37:21 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:37:21 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.16 exceeds threshold 3.0
+2025-12-16 14:37:23 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.77 exceeds threshold 3.0
+2025-12-16 14:37:32 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:38:40 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 14:38:40 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 14:48:37 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 14:48:37 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 14:48:37 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 14:48:37 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 14:48:37 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 14:48:37 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 14:48:37 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.storage.resampler | __init__:69 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:20 | Price stats calculator initialized (window: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 14:48:43 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 14:49:07 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 14:49:07 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 14:49:07 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 14:49:09 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 14:49:10 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 2.19 (avg: 0.55)
+2025-12-16 14:49:11 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.25 (avg: 0.06)
+2025-12-16 14:49:14 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.44 exceeds threshold 3.0
+2025-12-16 14:49:26 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:49:28 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:49:28 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 14:52:15 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 14:52:15 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 14:52:15 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.storage.resampler | __init__:69 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 14:52:22 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 14:53:09 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 14:53:09 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT']
+2025-12-16 14:53:09 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade
+2025-12-16 14:53:11 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 14:53:12 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.14 (avg: 0.04)
+==================================================
+2025-12-16 14:53:12 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.14 (avg: 0.04)
+2025-12-16 14:53:12 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 14:53:12 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:53:31 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -6.32 exceeds threshold 3.0
+==================================================
+2025-12-16 14:53:31 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -6.32 exceeds threshold 3.0
+2025-12-16 14:58:12 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 1.54 (avg: 0.02)
+==================================================
+2025-12-16 14:58:12 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 1.54 (avg: 0.02)
+2025-12-16 14:58:29 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 14:58:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 14:58:34 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -7.00 exceeds threshold 3.0
+==================================================
+2025-12-16 14:58:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -7.00 exceeds threshold 3.0
+2025-12-16 15:03:12 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 3.02 (avg: 0.03)
+==================================================
+2025-12-16 15:03:12 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 3.02 (avg: 0.03)
+2025-12-16 15:03:37 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score 3.09 exceeds threshold 3.0
+==================================================
+2025-12-16 15:03:37 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.09 exceeds threshold 3.0
+2025-12-16 15:03:39 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:03:39 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:08:12 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 3.03 (avg: 0.03)
+==================================================
+2025-12-16 15:08:12 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 3.03 (avg: 0.03)
+2025-12-16 15:08:39 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:08:39 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:08:39 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 15:08:39 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 15:10:16 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 15:10:16 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 15:10:16 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.storage.resampler | __init__:71 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:10:34 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:10:35 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:11:48 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 15:11:48 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 15:11:48 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 15:11:49 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 15:11:49 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 0.08 (avg: 0.02)
+==================================================
+2025-12-16 15:11:49 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.08 (avg: 0.02)
+2025-12-16 15:11:49 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score -3.74 exceeds threshold 3.0
+==================================================
+2025-12-16 15:11:49 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.74 exceeds threshold 3.0
+2025-12-16 15:11:49 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:11:49 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:11:50 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.02 (avg: 0.00)
+==================================================
+2025-12-16 15:11:50 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.02 (avg: 0.00)
+2025-12-16 15:11:50 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:11:50 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:12:12 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 15:12:12 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 15:14:47 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 15:14:47 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 15:20:02 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:20:02 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 15:20:02 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 15:20:02 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 15:20:02 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 15:20:02 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 15:20:02 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:20:19 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:20:40 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 15:20:40 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 15:20:40 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 15:20:40 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 15:20:41 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 16.23 (avg: 4.06)
+==================================================
+2025-12-16 15:20:41 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 16.23 (avg: 4.06)
+2025-12-16 15:20:41 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -4.69 exceeds threshold 3.0
+==================================================
+2025-12-16 15:20:41 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -4.69 exceeds threshold 3.0
+2025-12-16 15:20:41 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.55 (avg: 0.14)
+==================================================
+2025-12-16 15:20:41 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.55 (avg: 0.14)
+2025-12-16 15:20:44 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -4.16 exceeds threshold 3.0
+==================================================
+2025-12-16 15:20:44 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -4.16 exceeds threshold 3.0
+2025-12-16 15:20:45 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:20:45 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:20:46 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:20:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:25:41 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 23.67 (avg: 0.24)
+==================================================
+2025-12-16 15:25:41 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 23.67 (avg: 0.24)
+2025-12-16 15:25:42 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 3.69 (avg: 0.04)
+==================================================
+2025-12-16 15:25:42 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 3.69 (avg: 0.04)
+2025-12-16 15:25:43 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 15:25:43 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 15:25:44 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 15:25:44 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 15:25:46 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:25:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:25:48 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:25:48 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 15:29:57 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 15:29:57 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 15:29:57 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:30:09 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:31:24 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 15:31:24 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 15:31:24 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 15:31:25 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 15:31:25 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 1.71 (avg: 0.43)
+==================================================
+2025-12-16 15:31:25 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 1.71 (avg: 0.43)
+2025-12-16 15:31:26 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.32 (avg: 0.08)
+==================================================
+2025-12-16 15:31:26 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.32 (avg: 0.08)
+2025-12-16 15:31:34 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:31:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:31:34 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -8.89 exceeds threshold 3.0
+==================================================
+2025-12-16 15:31:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -8.89 exceeds threshold 3.0
+2025-12-16 15:31:38 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score -3.80 exceeds threshold 3.0
+==================================================
+2025-12-16 15:31:38 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.80 exceeds threshold 3.0
+2025-12-16 15:31:48 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:31:48 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:35:17 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 15:35:17 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 15:37:10 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:37:10 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 15:37:10 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 15:37:10 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 15:37:10 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 15:37:10 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 15:37:11 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1min', '5min', '1hour']
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:40:29 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:40:55 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 15:40:55 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 15:40:55 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 15:40:56 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 15:40:56 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 0.37 (avg: 0.09)
+==================================================
+2025-12-16 15:40:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.37 (avg: 0.09)
+2025-12-16 15:40:56 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:40:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:40:56 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score -3.74 exceeds threshold 3.0
+==================================================
+2025-12-16 15:40:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.74 exceeds threshold 3.0
+2025-12-16 15:40:57 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.05 (avg: 0.01)
+==================================================
+2025-12-16 15:40:57 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.05 (avg: 0.01)
+2025-12-16 15:41:04 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.37 exceeds threshold 3.0
+==================================================
+2025-12-16 15:41:04 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.37 exceeds threshold 3.0
+2025-12-16 15:41:27 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:41:27 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 15:44:33 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 15:44:33 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 15:44:33 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:44:51 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:45:28 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 15:45:28 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 15:45:28 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 15:45:28 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 15:45:29 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 1.21 (avg: 0.30)
+==================================================
+2025-12-16 15:45:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 1.21 (avg: 0.30)
+2025-12-16 15:45:29 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.03 (avg: 0.01)
+==================================================
+2025-12-16 15:45:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.03 (avg: 0.01)
+2025-12-16 15:45:31 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:45:31 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:45:32 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:45:32 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:45:32 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -5.92 exceeds threshold 3.0
+==================================================
+2025-12-16 15:45:32 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -5.92 exceeds threshold 3.0
+2025-12-16 15:45:59 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 15:45:59 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:50:01 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:50:02 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:50:02 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:50:29 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 2.43 (avg: 0.02)
+==================================================
+2025-12-16 15:50:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 2.43 (avg: 0.02)
+2025-12-16 15:50:29 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 61.24 (avg: 0.61)
+==================================================
+2025-12-16 15:50:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 61.24 (avg: 0.61)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:50:33 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:50:34 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:50:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:50:34 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:50:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:50:34 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -5.69 exceeds threshold 3.0
+==================================================
+2025-12-16 15:50:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -5.69 exceeds threshold 3.0
+2025-12-16 15:51:01 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score 4.55 exceeds threshold 3.0
+==================================================
+2025-12-16 15:51:01 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 4.55 exceeds threshold 3.0
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 15:51:19 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 15:51:44 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 15:51:44 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 15:51:44 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 15:51:45 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 15:51:46 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 0.04 (avg: 0.01)
+==================================================
+2025-12-16 15:51:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.04 (avg: 0.01)
+2025-12-16 15:51:46 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.02 (avg: 0.00)
+==================================================
+2025-12-16 15:51:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.02 (avg: 0.00)
+2025-12-16 15:51:46 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.39 exceeds threshold 3.0
+==================================================
+2025-12-16 15:51:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.39 exceeds threshold 3.0
+2025-12-16 15:51:48 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score 3.23 exceeds threshold 3.0
+==================================================
+2025-12-16 15:51:48 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.23 exceeds threshold 3.0
+2025-12-16 15:51:58 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:51:58 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:52:04 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:52:04 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:56:46 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 134.09 (avg: 1.34)
+==================================================
+2025-12-16 15:56:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 134.09 (avg: 1.34)
+2025-12-16 15:56:46 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 2.08 (avg: 0.02)
+==================================================
+2025-12-16 15:56:46 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 2.08 (avg: 0.02)
+2025-12-16 15:56:49 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.66 exceeds threshold 3.0
+==================================================
+2025-12-16 15:56:49 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.66 exceeds threshold 3.0
+2025-12-16 15:57:00 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.91 exceeds threshold 3.0
+==================================================
+2025-12-16 15:57:00 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.91 exceeds threshold 3.0
+2025-12-16 15:57:05 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:57:05 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:57:05 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 15:57:05 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 15:59:00 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 15:59:00 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 15:59:00 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 16:40:06 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 16:41:19 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 16:41:19 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 16:41:19 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 16:41:19 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 16:41:19 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 16:41:19 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 16:50:08 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 16:51:11 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 16:51:11 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 16:51:11 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 16:51:11 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 16:51:11 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 16:51:12 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 16:55:29 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 16:56:33 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 16:56:33 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 16:56:33 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 16:56:34 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 16:56:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.23 (avg: 0.06)
+==================================================
+2025-12-16 16:56:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.23 (avg: 0.06)
+2025-12-16 16:56:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 0.97 (avg: 0.24)
+==================================================
+2025-12-16 16:56:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.97 (avg: 0.24)
+2025-12-16 16:56:35 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.00 exceeds threshold 3.0
+==================================================
+2025-12-16 16:56:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.00 exceeds threshold 3.0
+2025-12-16 16:56:38 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -4.65 exceeds threshold 3.0
+==================================================
+2025-12-16 16:56:38 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -4.65 exceeds threshold 3.0
+2025-12-16 16:56:42 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 16:56:42 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 16:56:43 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 16:56:43 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 16:57:01 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 16:57:01 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 16:57:01 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 16:57:03 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 16:57:09 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 16:57:19 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 16:57:19 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:01:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 4.20 (avg: 0.04)
+==================================================
+2025-12-16 17:01:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 4.20 (avg: 0.04)
+2025-12-16 17:01:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 27.69 (avg: 0.28)
+==================================================
+2025-12-16 17:01:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 27.69 (avg: 0.28)
+2025-12-16 17:01:37 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.52 exceeds threshold 3.0
+==================================================
+2025-12-16 17:01:37 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.52 exceeds threshold 3.0
+2025-12-16 17:01:41 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.15 exceeds threshold 3.0
+==================================================
+2025-12-16 17:01:41 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.15 exceeds threshold 3.0
+2025-12-16 17:01:56 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:01:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:02:22 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:02:22 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:06:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.83 (avg: 0.01)
+==================================================
+2025-12-16 17:06:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.83 (avg: 0.01)
+2025-12-16 17:06:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 78.40 (avg: 0.78)
+==================================================
+2025-12-16 17:06:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 78.40 (avg: 0.78)
+2025-12-16 17:06:39 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score 4.14 exceeds threshold 3.0
+==================================================
+2025-12-16 17:06:39 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 4.14 exceeds threshold 3.0
+2025-12-16 17:06:44 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 17:06:44 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 17:07:00 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:07:00 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:07:24 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:07:24 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:11:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 3.07 (avg: 0.03)
+==================================================
+2025-12-16 17:11:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 3.07 (avg: 0.03)
+2025-12-16 17:11:36 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 68.52 (avg: 0.69)
+==================================================
+2025-12-16 17:11:36 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 68.52 (avg: 0.69)
+2025-12-16 17:11:47 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 17:11:47 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 17:11:48 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.30 exceeds threshold 3.0
+==================================================
+2025-12-16 17:11:48 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.30 exceeds threshold 3.0
+2025-12-16 17:12:03 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:12:03 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:12:27 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:12:27 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:16:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 3.13 (avg: 0.03)
+==================================================
+2025-12-16 17:16:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 3.13 (avg: 0.03)
+2025-12-16 17:16:36 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 11.05 (avg: 0.11)
+==================================================
+2025-12-16 17:16:36 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 11.05 (avg: 0.11)
+2025-12-16 17:16:49 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.94 exceeds threshold 3.0
+==================================================
+2025-12-16 17:16:49 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.94 exceeds threshold 3.0
+2025-12-16 17:16:52 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 17:16:52 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 17:17:04 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:17:04 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:17:30 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:17:30 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:21:36 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 7.14 (avg: 0.07)
+==================================================
+2025-12-16 17:21:36 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 7.14 (avg: 0.07)
+2025-12-16 17:21:36 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 29.36 (avg: 0.29)
+==================================================
+2025-12-16 17:21:36 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 29.36 (avg: 0.29)
+2025-12-16 17:21:53 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score -3.11 exceeds threshold 3.0
+==================================================
+2025-12-16 17:21:53 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.11 exceeds threshold 3.0
+2025-12-16 17:22:05 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score 3.21 exceeds threshold 3.0
+==================================================
+2025-12-16 17:22:05 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.21 exceeds threshold 3.0
+2025-12-16 17:22:05 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:22:05 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:22:35 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:22:35 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:26:36 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 9.62 (avg: 0.10)
+==================================================
+2025-12-16 17:26:36 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 9.62 (avg: 0.10)
+2025-12-16 17:26:36 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 7.61 (avg: 0.08)
+==================================================
+2025-12-16 17:26:36 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 7.61 (avg: 0.08)
+2025-12-16 17:26:58 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score -3.88 exceeds threshold 3.0
+==================================================
+2025-12-16 17:26:58 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.88 exceeds threshold 3.0
+2025-12-16 17:27:07 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:27:07 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:27:07 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 17:27:07 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 17:27:37 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:27:37 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 17:30:47 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 17:30:47 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 17:30:49 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 17:30:51 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 17:38:11 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 17:38:12 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 17:38:55 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 17:38:55 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 17:38:55 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 17:38:56 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 17:38:56 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.22 (avg: 0.05)
+==================================================
+2025-12-16 17:38:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.22 (avg: 0.05)
+2025-12-16 17:38:56 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 0.40 (avg: 0.10)
+==================================================
+2025-12-16 17:38:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.40 (avg: 0.10)
+2025-12-16 17:38:56 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.02 exceeds threshold 3.0
+==================================================
+2025-12-16 17:38:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.02 exceeds threshold 3.0
+2025-12-16 17:38:59 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score -3.04 exceeds threshold 3.0
+==================================================
+2025-12-16 17:38:59 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.04 exceeds threshold 3.0
+2025-12-16 17:39:01 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:39:01 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:39:06 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:39:06 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 17:43:45 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 17:43:45 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 17:43:46 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 17:43:46 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 17:44:06 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 17:44:31 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 17:44:31 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['ETHUSDT']
+2025-12-16 17:44:31 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/ethusdt@trade
+2025-12-16 17:44:32 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 17:44:32 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 0.57 (avg: 0.14)
+==================================================
+2025-12-16 17:44:32 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.57 (avg: 0.14)
+2025-12-16 17:44:34 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.64 exceeds threshold 3.0
+==================================================
+2025-12-16 17:44:34 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.64 exceeds threshold 3.0
+2025-12-16 17:44:47 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:44:47 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.main | shutdown:196 | Stopping WebSocket client...
+2025-12-16 17:48:46 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 17:48:46 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 17:48:47 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 17:48:48 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 17:56:03 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 17:56:04 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 17:56:14 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 17:56:14 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 17:56:14 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 17:56:17 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 17:56:17 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 1.46 (avg: 0.37)
+==================================================
+2025-12-16 17:56:17 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 1.46 (avg: 0.37)
+2025-12-16 17:56:17 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: ETHUSDT
+Message: Z-score 9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 17:56:17 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 9.95 exceeds threshold 3.0
+2025-12-16 17:56:17 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.14 (avg: 0.03)
+==================================================
+2025-12-16 17:56:17 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.14 (avg: 0.03)
+2025-12-16 17:56:21 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -4.79 exceeds threshold 3.0
+==================================================
+2025-12-16 17:56:21 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -4.79 exceeds threshold 3.0
+2025-12-16 17:56:24 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:56:24 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 17:56:27 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 17:56:27 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 18:01:17 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 39.46 (avg: 0.39)
+==================================================
+2025-12-16 18:01:17 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 39.46 (avg: 0.39)
+2025-12-16 18:01:17 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 5.57 (avg: 0.06)
+==================================================
+2025-12-16 18:01:18 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 5.57 (avg: 0.06)
+2025-12-16 18:01:24 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.25 exceeds threshold 3.0
+==================================================
+2025-12-16 18:01:24 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.25 exceeds threshold 3.0
+2025-12-16 18:01:28 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 18:01:28 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 18:01:29 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 18:01:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 18:01:29 | [35mCRITICAL[0m | quantstream.alerts.notifier | _notify_console:31 | 
+==================================================
+[CRITICAL] ALERT
+Symbol: BTCUSDT
+Message: Z-score -9.95 exceeds threshold 3.0
+==================================================
+2025-12-16 18:01:29 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -9.95 exceeds threshold 3.0
+2025-12-16 18:04:43 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 18:04:43 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 20:42:35 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 20:44:03 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 20:44:03 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 20:44:03 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 20:44:03 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 20:44:03 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 20:44:04 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | __init__:45 | ============================================================
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | __init__:46 | QuantStream - Real-Time Quant Analytics Engine
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | __init__:47 | ============================================================
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:51 | Setting up components...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:54 | Initializing database...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.storage.sqlite | _init_database:34 | Database schema initialized
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.storage.sqlite | __init__:22 | SQLite client initialized: data/quantstream.db
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:59 | Initializing resampler...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.storage.resampler | __init__:74 | Resampler initialized with timeframes: ['1s', '1m', '5m']
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:63 | Initializing tick buffer...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.ingestion.buffer | __init__:23 | Tick buffer initialized (max per symbol: 10000)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:67 | Initializing data router...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.ingestion.router | __init__:19 | Data router initialized
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:71 | Initializing analytics engine...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.price_stats | __init__:34 | Price stats calculator initialized (window: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.zscore | __init__:15 | Z-score calculator initialized (window: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.correlation | __init__:22 | Correlation calculator initialized (window: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.spread | __init__:21 | Spread calculator initialized (window: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.regression | __init__:22 | Regression calculator initialized (window: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.adf_test | __init__:23 | ADF test initialized (window: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.analytics.engine | __init__:37 | Analytics engine initialized (window size: 100)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:75 | Initializing alert engine...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.alerts.notifier | __init__:12 | Alert notifier initialized
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.alerts.engine | __init__:24 | Alert engine initialized (cooldown: 300s)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.ingestion.router | register_handler:24 | Handler registered (total: 1)
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:85 | Initializing WebSocket client...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.ingestion.ws_client | __init__:30 | WebSocket client initialized for symbols: ['btcusdt', 'ethusdt']
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:93 | Creating API server...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.api.server | create_app:82 | FastAPI application created
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | setup:106 | All components initialized successfully!
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:161 | Creating default alert rules...
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.alerts.rules | create_default_rules:106 | Created 6 default rules for 2 symbols
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.alerts.engine | add_rules:33 | Added 6 alert rules
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:166 | Starting API server on 0.0.0.0:8000
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:167 | API documentation available at: http://0.0.0.0:8000/docs
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:168 | 
+To start data ingestion, use the API endpoint:
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:169 |   POST http://0.0.0.0:8000/ingestion/start
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:170 |   or use the Streamlit dashboard
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.main | run:171 | 
+Press Ctrl+C to stop
+
+2025-12-16 20:51:50 | [32mINFO[0m | quantstream.api.server | lifespan:35 | Starting up QuantStream API server...
+2025-12-16 20:52:57 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 20:52:57 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 20:52:57 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 20:53:00 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 20:53:00 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 20:53:14 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 20:53:14 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['SOLUSDT']
+2025-12-16 20:53:14 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/solusdt@trade
+2025-12-16 20:53:15 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 20:53:22 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 20:53:22 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 20:54:54 | [32mINFO[0m | quantstream.ingestion.ws_client | start:39 | WebSocket client started
+2025-12-16 20:54:54 | [32mINFO[0m | quantstream.api.routes_ingestion | start_ingestion:33 | Started ingestion for: ['BTCUSDT', 'ETHUSDT']
+2025-12-16 20:54:54 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 20:54:56 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 20:54:56 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Volume spike: 2.02 (avg: 0.50)
+==================================================
+2025-12-16 20:54:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 2.02 (avg: 0.50)
+2025-12-16 20:54:56 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: ETHUSDT
+Message: Z-score 3.96 exceeds threshold 3.0
+==================================================
+2025-12-16 20:54:56 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score 3.96 exceeds threshold 3.0
+2025-12-16 20:54:57 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Volume spike: 0.01 (avg: 0.00)
+==================================================
+2025-12-16 20:54:57 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Volume spike: 0.01 (avg: 0.00)
+2025-12-16 20:54:57 | [31mERROR[0m | quantstream.alerts.notifier | _notify_console:33 | 
+==================================================
+[HIGH] ALERT
+Symbol: BTCUSDT
+Message: Z-score -3.16 exceeds threshold 3.0
+==================================================
+2025-12-16 20:54:57 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Z-score -3.16 exceeds threshold 3.0
+2025-12-16 20:54:59 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed
+2025-12-16 20:55:08 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: BTCUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 20:55:08 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 20:55:08 | [32mINFO[0m | quantstream.alerts.notifier | _notify_console:37 | 
+==================================================
+[LOW] ALERT
+Symbol: ETHUSDT
+Message: Price changed by 100.00%
+==================================================
+2025-12-16 20:55:08 | [32mINFO[0m | quantstream.alerts.engine | _trigger_alert:96 | Alert triggered: Price changed by 100.00%
+2025-12-16 20:55:13 | [33mWARNING[0m | quantstream.ingestion.ws_client | _connect_and_listen:80 | WebSocket connection closed
+2025-12-16 20:55:13 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 20:55:18 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 20:57:09 | [33mWARNING[0m | quantstream.ingestion.ws_client | _connect_and_listen:80 | WebSocket connection closed
+2025-12-16 20:57:09 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 20:57:19 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: timed out during opening handshake
+2025-12-16 20:57:24 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:66 | Connecting to Binance: wss://fstream.binance.com/ws/btcusdt@trade/ethusdt@trade
+2025-12-16 20:57:31 | [32mINFO[0m | quantstream.ingestion.ws_client | _connect_and_listen:71 | Connected to Binance WebSocket
+2025-12-16 20:58:54 | [31mERROR[0m | quantstream.ingestion.ws_client | _run_async_loop:55 | Async loop error: Event loop stopped before Future completed.
+2025-12-16 20:58:54 | [32mINFO[0m | quantstream.ingestion.ws_client | stop:47 | WebSocket client stopped
+2025-12-16 20:59:10 | [32mINFO[0m | quantstream.api.server | lifespan:37 | Shutting down...
+2025-12-16 20:59:10 | [32mINFO[0m | quantstream.main | _signal_handler:187 | 
+Shutdown signal received. Cleaning up...
+2025-12-16 20:59:10 | [32mINFO[0m | quantstream.main | shutdown:193 | Shutting down...
+2025-12-16 20:59:10 | [32mINFO[0m | quantstream.main | shutdown:200 | Cleaning up old data...
+2025-12-16 20:59:10 | [32mINFO[0m | quantstream.storage.sqlite | delete_old_ticks:165 | Deleted ticks older than 7 days
+2025-12-16 20:59:11 | [32mINFO[0m | quantstream.main | shutdown:204 | Shutdown complete.
+2025-12-16 20:59:11 | [31mERROR[0m | quantstream.ingestion.ws_client | _connect_and_listen:84 | WebSocket error: Event loop is closed

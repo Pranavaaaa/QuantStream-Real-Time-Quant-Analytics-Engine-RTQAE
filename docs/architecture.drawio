@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="QuantStream Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="QuantStream RTQAE - System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- External Data Source -->
+        <mxCell id="binance" value="Binance Futures&#xa;WebSocket API&#xa;wss://fstream.binance.com" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="150" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Ingestion Layer -->
+        <mxCell id="ingestion_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ingestion_title" value="INGESTION LAYER" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="85" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ws_client" value="ws_client.py&#xa;(WebSocket)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="265" y="110" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="buffer" value="buffer.py&#xa;(Circular)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="345" y="110" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="router" value="router.py&#xa;(Distributor)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="305" y="155" width="80" height="35" as="geometry" />
+        </mxCell>
+        
+        <!-- Storage Layer -->
+        <mxCell id="storage_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="460" y="80" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="storage_title" value="STORAGE LAYER" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="490" y="85" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sqlite" value="SQLite&#xa;Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="480" y="115" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="resampler" value="resampler.py&#xa;(1s/1m/5m)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="555" y="120" width="70" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Analytics Layer -->
+        <mxCell id="analytics_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="250" y="230" width="390" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics_title" value="ANALYTICS ENGINE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="235" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="price_stats" value="price_stats.py&#xa;Mean/Std/VWAP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="265" y="260" width="85" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zscore" value="zscore.py&#xa;Z-Score" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="360" y="260" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="correlation" value="correlation.py&#xa;Pearson/Spearman" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="440" y="260" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="regression" value="regression.py&#xa;OLS/Hedge Ratio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="540" y="260" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="spread" value="spread.py&#xa;Spread Calc" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="290" y="315" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="adf" value="adf_test.py&#xa;Stationarity" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="390" y="315" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="engine" value="analytics_engine.py&#xa;(Coordinator)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="490" y="315" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Alert Layer -->
+        <mxCell id="alert_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="670" y="230" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="alert_title" value="ALERT ENGINE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="695" y="235" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rules" value="rules.py&#xa;Thresholds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="685" y="265" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="alert_engine" value="engine.py&#xa;Evaluator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="685" y="315" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="notifier" value="notifier.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="760" y="290" width="40" height="35" as="geometry" />
+        </mxCell>
+        
+        <!-- API Layer -->
+        <mxCell id="api_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="250" y="400" width="560" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="api_title" value="API LAYER (FastAPI)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="460" y="405" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="server" value="server.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="270" y="430" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="routes_ingestion" value="/ingestion/*" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="360" y="430" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="routes_analytics" value="/analytics/*" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="460" y="430" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="routes_alerts" value="/alerts/*" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="560" y="430" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="routes_export" value="/export/*" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="650" y="430" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="health" value="/health" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="740" y="430" width="50" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend -->
+        <mxCell id="frontend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="250" y="520" width="560" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend_title" value="FRONTEND (Streamlit Dashboard)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="525" width="260" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="controls" value="Controls&#xa;Start/Stop" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="270" y="555" width="65" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="live_data" value="Live Data&#xa;Prices" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="350" y="555" width="65" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="statistics" value="Statistics&#xa;Metrics" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="430" y="555" width="65" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="charts" value="Analytics&#xa;Charts" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="510" y="555" width="65" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="alerts_ui" value="Alerts&#xa;Monitor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="590" y="555" width="60" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="export_ui" value="Export&#xa;CSV/JSON" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="665" y="555" width="65" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="styles" value="🎨&#xa;CSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="745" y="555" width="45" height="45" as="geometry" />
+        </mxCell>
+        
+        <!-- User -->
+        <mxCell id="user" value="👤 User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0" vertex="1" parent="1">
+          <mxGeometry x="510" y="660" width="40" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="140" as="sourcePoint" />
+            <mxPoint x="250" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="140" as="sourcePoint" />
+            <mxPoint x="460" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="200" as="sourcePoint" />
+            <mxPoint x="340" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="200" as="sourcePoint" />
+            <mxPoint x="550" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow5" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="300" as="sourcePoint" />
+            <mxPoint x="670" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow6" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="445" y="370" as="sourcePoint" />
+            <mxPoint x="445" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow7" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="490" as="sourcePoint" />
+            <mxPoint x="530" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow8" value="" style="endArrow=classic;html=1;strokeWidth=2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="620" as="sourcePoint" />
+            <mxPoint x="530" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend_title" value="Data Flow Legend:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="100" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" value="WS → Ingestion" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="125" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" value="→ Storage" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="140" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" value="→ Resampling" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="155" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" value="→ Analytics" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="170" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5" value="→ API" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="185" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend6" value="→ Dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="200" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend7" value="→ Alerts" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="850" y="215" width="100" height="15" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
