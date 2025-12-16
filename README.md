@@ -95,7 +95,7 @@ npm run dev
 
 ### 1. Starting Data Ingestion
 1. Open the dashboard at `http://localhost:5173`
-2. Navigate to the **Controls** page
+2. Navigate to the **Dashboard** page
 3. Select symbols to monitor (e.g., BTCUSDT, ETHUSDT)
 4. Click **▶️ Start Ingestion**
 
