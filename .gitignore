@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
+
+# Database
+*.db
+backend/data/*.db
+
+# Logs
+*.log
+backend/logs/*.log
+logs/
+
+# React / Node
+node_modules/
+frontend/dist/
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+
+# OS
+.DS_Store
+Thumbs.db

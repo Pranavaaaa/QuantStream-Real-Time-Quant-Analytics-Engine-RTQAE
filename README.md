@@ -123,30 +123,64 @@ The **Analytics** page provides detailed interactive charts:
 
 ## 🏗️ Architecture
 
-```
-QuantStream RTQAE
-│
-├── Backend (Python/FastAPI)
-│   ├── Core (Config, Logger, Utils)
-│   ├── Storage (SQLite, Models, Resampler)
-│   ├── Ingestion (WebSocket, Buffer, Router)
-│   ├── Analytics (Stats, Z-Score, Correlation, Regression, ADF)
-│   ├── Alerts (Rules, Engine, Notifier)
-│   └── API (Server, Routes)
-│
-├── Database (SQLite)
-│   ├── Ticks (Raw trade data)
-│   ├── OHLCV (Candlestick data)
-│   ├── Analytics (Computed metrics)
-│   └── Alerts (Alert history)
-│
-└── Frontend (React + Vite)
-    ├── src/
-    │   ├── api/        # Axios API client
-    │   ├── components/ # Reusable UI components
-    │   ├── pages/      # Application pages
-    │   └── App.jsx     # Main entry point
-    └── public/         # Static assets
+```mermaid
+graph TD
+    subgraph External
+        Binance[Binance Futures API]
+    end
+
+    subgraph "Backend (Python)"
+        WS[WebSocket Client]
+        Buffer[Circular Buffer]
+        Router[Data Router]
+        
+        subgraph Analytics
+            Stats[Price Stats]
+            ZScore[Z-Score Engine]
+            Corr[Correlation Engine]
+            ADF[ADF Test]
+        end
+        
+        subgraph Storage
+            DB[(SQLite Database)]
+            Resampler[OHLCV Resampler]
+        end
+        
+        Alerts[Alert Engine]
+        API[FastAPI Server]
+    end
+
+    subgraph "Frontend (React)"
+        Client[Axios Client]
+        Dashboard[React Dashboard]
+        Charts[Plotly Charts]
+    end
+
+    %% Data Flow
+    Binance -->|Real-time Ticks| WS
+    WS --> Buffer
+    Buffer --> Router
+    
+    Router --> Stats
+    Router --> ZScore
+    Router --> Resampler
+    
+    Stats --> API
+    ZScore --> API
+    ZScore --> Alerts
+    
+    Resampler --> DB
+    Alerts --> DB
+    
+    Stats --> Corr
+    Stats --> ADF
+    
+    %% API Interaction
+    Dashboard -->|Polls Data| Client
+    Client -->|HTTP GET| API
+    API -->|JSON Response| Client
+    Client -->|Update State| Dashboard
+    Dashboard -->|Render| Charts
 ```
 
 ## 📊 API Documentation
